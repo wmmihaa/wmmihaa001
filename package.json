@@ -2,7 +2,10 @@
   "name": "wmmihaa001",
   "version": "1.0.0",
   "description": "",
-  "bin": "./index.js",
+  "main": "index.js",
+  "bin": {
+    "hello-wmmihaa": "index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wmmihaa/wmmihaa001.git"
