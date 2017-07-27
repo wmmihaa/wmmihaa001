@@ -1,2 +1,4 @@
 #!/usr/bin/env node
-console.log("Hello from the test branch");
+console.log("requiring package.json");
+console.log("base folder = " + __dirname);
+var pjson = require('./package.json');
