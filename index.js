@@ -4,15 +4,15 @@ var npm = require('npm');
 var thermometer;
 
 addNpmPackage("iot-simlators", function (err) {
+    console.log("Package installed");
+
     var Thermometer = require(process.env.__npmPath+"iot-simlators").Thermometer;
     thermometer = new Thermometer(null, 39);
-});
-
-setTimeout(function () {
     thermometer.start(1000, function (r) {
         console.log(r.temperature);
     })
-}, 15000);
+});
+
 function addNpmPackage(npmPackage, callback) {
     var ret;
     var me = this;
