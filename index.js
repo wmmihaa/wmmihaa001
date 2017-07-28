@@ -4,6 +4,8 @@
 if (!process.env.__npmPath) {
     process.env.__npmPath = __dirname + "/node_modules"
 }
+var Module = require('module').Module;
+var paths = Module._nodeModulePaths(__dirname);
 
 console.log("start");
 var util = require('./lib/Util.js');
