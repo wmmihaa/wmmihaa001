@@ -12,7 +12,7 @@ setTimeout(function () {
     thermometer.start(1000, function (r) {
         console.log(r.temperature);
     })
-}, 5000);
+}, 15000);
 function addNpmPackage(npmPackage, callback) {
     var ret;
     var me = this;
