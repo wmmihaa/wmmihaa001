@@ -11,7 +11,7 @@ var thermometer;
 
 util.showPaths("Main");
 
-util.addNpmPackage("iot-simlators@1.0.7", function (err) {
+util.addNpmPackage("iot-simlators@1.0.8", function (err) {
     console.log("Package installed");
 
     var Thermometer = util.require("iot-simlators").Thermometer;
