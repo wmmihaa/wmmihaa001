@@ -5,7 +5,7 @@ var thermometer;
 
 util.showPaths("Main");
 
-util.addNpmPackage("iot-simlators@1.0.5", function (err) {
+util.addNpmPackage("iot-simlators@1.0.6", function (err) {
     console.log("Package installed");
 
     var Thermometer = require(process.env.__npmPath + "iot-simlators").Thermometer;
