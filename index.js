@@ -7,8 +7,22 @@ if (!process.env.__npmPath) {
 var path = require("path");
 var Module = require('module').Module;
 
+console.log('Before');
+for (var i = 0; i < Module.globalPaths.length; i++) {
+    console.log(Module.globalPaths[i]);
+}
+console.log('');
+
 packagePath = path.resolve(process.env.APPDATA ? process.env.APPDATA : ".", "node_modules");
 require('app-module-path').addPath(packagePath);
+
+console.log('');
+
+console.log('After');
+for (var i = 0; i < Module.globalPaths.length; i++) {
+    console.log(Module.globalPaths[i]);
+}
+
 // var paths = Module._nodeModulePaths(packagePath);
 // for (var i = 0; i < paths.length; i++) {
 //     Module.globalPaths.push(paths[i]);
