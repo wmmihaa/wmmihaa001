@@ -21,6 +21,12 @@ require('app-module-path').addPath(__dirname);
 Module.globalPaths.push(packagePath);
 console.log('');
 
+for (var i = 0; i < require.main.paths.length; i++) {
+
+    if(Module.globalPaths.indexOf(require.main.paths[i]) === -1)
+        Module.globalPaths.push(require.main.paths[i]);
+}
+
 console.log('After');
 for (var i = 0; i < require.main.paths.length; i++) {
     console.log(require.main.paths[i]);
