@@ -11,13 +11,14 @@ var Module = require('module').Module;
 
 console.log('Before');
 for (var i = 0; i < require.main.paths.length; i++) {
-    console.log(require.main.paths[i].grey);
+    console.log(require.main.paths[i]);
 }
 console.log('');
 
 packagePath = path.resolve(process.env.APPDATA ? process.env.APPDATA : ".", "node_modules");
 require('app-module-path').addPath(packagePath);
-
+require('app-module-path').addPath(__dirname);
+Module.globalPaths.push(packagePath);
 console.log('');
 
 console.log('After');
