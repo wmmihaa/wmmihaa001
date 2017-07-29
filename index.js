@@ -3,6 +3,9 @@
 if (!process.env.__npmPath) {
     process.env.__npmPath = __dirname + "/node_modules"
 }
+process.env.NODE_PATH = __dirname;
+require('module').Module._initPaths();
+
 var path = require("path");
 var Module = require('module').Module;
 
@@ -26,7 +29,7 @@ console.log("start");
 var util = require('./lib/Util.js');
 var thermometer;
 
-util.showPaths("Main");
+//util.showPaths("Main");
 
 util.addNpmPackage("iot-simlators@latest", function (err) {
     console.log("Package installed");
