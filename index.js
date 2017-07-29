@@ -8,11 +8,11 @@ var path = require("path");
 var Module = require('module').Module;
 
 packagePath = path.resolve(process.env.APPDATA ? process.env.APPDATA : ".", "node_modules");
-
-var paths = Module._nodeModulePaths(packagePath);
-for (var i = 0; i < paths.length; i++) {
-    Module.globalPaths.push(paths[i]);
-}
+require('app-module-path').addPath(packagePath);
+// var paths = Module._nodeModulePaths(packagePath);
+// for (var i = 0; i < paths.length; i++) {
+//     Module.globalPaths.push(paths[i]);
+// }
 
 //Module.globalPaths.push(".\node_modules");
 
