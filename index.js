@@ -3,11 +3,16 @@
 if (!process.env.__npmPath) {
     process.env.__npmPath = __dirname + "/node_modules"
 }
+
+process.env.NODE_DEBUG = "module";
 process.env.NODE_PATH = __dirname + ";" + __dirname + "/node_modules";
-require('module').Module._initPaths();
+
+var m = require('module');
+m.Module._initPaths();
+
+var Module = m.Module;
 
 var path = require("path");
-var Module = require('module').Module;
 
 console.log('Before');
 for (var i = 0; i < require.main.paths.length; i++) {
@@ -20,6 +25,7 @@ require('app-module-path').addPath(packagePath);
 require('app-module-path').addPath(__dirname);
 Module.globalPaths.push(packagePath);
 console.log('');
+
 
 for (var i = 0; i < require.main.paths.length; i++) {
 
