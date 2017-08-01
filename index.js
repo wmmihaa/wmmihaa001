@@ -12,7 +12,7 @@
 
 // var Module = m.Module;
 
-// var path = require("path");
+ var path = require("path");
 
 // console.log('Before');
 // for (var i = 0; i < require.main.paths.length; i++) {
