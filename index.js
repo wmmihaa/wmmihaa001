@@ -23,6 +23,9 @@ console.log(process.argv);
 
 console.log("process.env.APPDATA: " + process.env.APPDATA);
 console.log("process.env.HOME: " + process.env.HOME);
+console.log("__dirname: " + __dirname);
+console.log(".: " + path.resolve("."));
+
 packagePath = path.resolve(process.env.APPDATA ? process.env.APPDATA : ".", "node_modules");
 require('app-module-path').addPath(packagePath);
 // require('app-module-path').addPath(__dirname);
