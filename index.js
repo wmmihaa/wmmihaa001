@@ -20,6 +20,8 @@
 // }
 // console.log('');
 
+console.log("process.env.APPDATA: " + process.env.APPDATA);
+console.log("process.env.HOME: " + process.env.HOME);
 packagePath = path.resolve(process.env.APPDATA ? process.env.APPDATA : ".", "node_modules");
 require('app-module-path').addPath(packagePath);
 // require('app-module-path').addPath(__dirname);
