@@ -11,6 +11,7 @@
 // m.Module._initPaths();
 
 // var Module = m.Module;
+console.log(process.argv);
 
  var path = require("path");
 
