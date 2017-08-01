@@ -1,42 +1,43 @@
 #!/usr/bin/env node
 
-if (!process.env.__npmPath) {
-    process.env.__npmPath = __dirname + "/node_modules"
-}
+// if (!process.env.__npmPath) {
+//     process.env.__npmPath = __dirname + "/node_modules"
+// }
 
-process.env.NODE_DEBUG = "module";
-process.env.NODE_PATH = __dirname + ";" + __dirname + "/node_modules";
+// process.env.NODE_DEBUG = "module";
+// process.env.NODE_PATH = __dirname + ";" + __dirname + "/node_modules";
 
-var m = require('module');
-m.Module._initPaths();
+// var m = require('module');
+// m.Module._initPaths();
 
-var Module = m.Module;
+// var Module = m.Module;
 
-var path = require("path");
+// var path = require("path");
 
-console.log('Before');
-for (var i = 0; i < require.main.paths.length; i++) {
-    console.log(require.main.paths[i]);
-}
-console.log('');
+// console.log('Before');
+// for (var i = 0; i < require.main.paths.length; i++) {
+//     console.log(require.main.paths[i]);
+// }
+// console.log('');
 
 packagePath = path.resolve(process.env.APPDATA ? process.env.APPDATA : ".", "node_modules");
 require('app-module-path').addPath(packagePath);
-require('app-module-path').addPath(__dirname);
+// require('app-module-path').addPath(__dirname);
 Module.globalPaths.push(packagePath);
-console.log('');
+// console.log('');
 
 
-for (var i = 0; i < require.main.paths.length; i++) {
+// for (var i = 0; i < require.main.paths.length; i++) {
 
-    if (Module.globalPaths.indexOf(require.main.paths[i]) === -1)
-        Module.globalPaths.push(require.main.paths[i]);
-}
+//     if (Module.globalPaths.indexOf(require.main.paths[i]) === -1)
+//         Module.globalPaths.push(require.main.paths[i]);
+// }
 
-console.log('After');
-for (var i = 0; i < require.main.paths.length; i++) {
-    console.log(require.main.paths[i]);
-}
+// console.log('After');
+// for (var i = 0; i < require.main.paths.length; i++) {
+//     console.log(require.main.paths[i]);
+// }
+
 require('colors');
 console.log("start".bgYellow.black);
 var util = require('./lib/Util.js');
