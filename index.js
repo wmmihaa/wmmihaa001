@@ -23,6 +23,7 @@ console.log(process.argv);
 
 console.log("process.env.APPDATA: " + process.env.APPDATA);
 console.log("process.env.HOME: " + process.env.HOME);
+console.log("process.env.PWD: " + process.env.PWD);
 console.log("__dirname: " + __dirname);
 console.log(".: " + path.resolve("."));
 
