@@ -23,7 +23,7 @@
 packagePath = path.resolve(process.env.APPDATA ? process.env.APPDATA : ".", "node_modules");
 require('app-module-path').addPath(packagePath);
 // require('app-module-path').addPath(__dirname);
-Module.globalPaths.push(packagePath);
+require('module').Module.globalPaths.push(packagePath);
 // console.log('');
 
 
