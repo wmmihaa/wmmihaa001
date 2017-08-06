@@ -49,7 +49,7 @@ var util = require('./lib/Util.js');
 
 // });
 
-util.addNpmPackage("microservicebus.core@beta", true, function (err) {
+util.addNpmPackage("microservicebus.core@beta", function (err) {
     if (err) {
         console.log("Unable to install core update".bgRed.white);
         console.log("Error: " + err);
