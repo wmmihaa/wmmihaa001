@@ -41,10 +41,23 @@ require('colors');
 console.log("start".bgYellow.black);
 var util = require('./lib/Util.js');
 
-util.addNpmPackage("wmmihaa002@latest", function (err) {
-    console.log("Package installed");
+// util.addNpmPackage("wmmihaa002@latest", function (err) {
+//     console.log("Package installed");
 
-    var w2 = require("wmmihaa002");
-    w2.printTime();
+//     var w2 = require("wmmihaa002");
+//     w2.printTime();
 
+// });
+
+util.addNpmPackage("microservicebus.core@beta", true, function (err) {
+    if (err) {
+        console.log("Unable to install core update".bgRed.white);
+        console.log("Error: " + err);
+    }
+    else {
+        console.log("Core installed successfully".bgRed.white);
+
+        var zzz = require("microservicebus.core");
+        console.log("isnull: " + zzz == null);
+    }
 });
