@@ -1,4 +1,4 @@
 
 
-
-console.log(process.argv[0]);
+var w2 = require('wmmihaa002');
+w2.printTime();
