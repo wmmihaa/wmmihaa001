@@ -1,63 +1,21 @@
-#!/usr/bin/env node
 
 
-//require('module')._initPaths();
 
-var path = require("path");
 
-console.log(process.argv);
-console.log("process.env.APPDATA: " + process.env.APPDATA);
-console.log("process.env.HOME: " + process.env.HOME);
-console.log("process.env.PWD: " + process.env.PWD);
-console.log("__dirname: " + __dirname);
-console.log(".: " + path.resolve("."));
-console.log("process.cwd: " + path.resolve(process.cwd()));
-console.log();
-console.log('****************************');
+var url = require('url');
+var request = require("request");
+var uri = 'https://microservicebus.com/jasper/signInUsingICCID?iccid=014752000022947';
 
-console.log('Before');
-for (var i = 0; i < require.main.paths.length; i++) {
-    console.log(require.main.paths[i]);
-}
-console.log('****************************');
+var interval = setInterval(function () {
+    console.log("calling " + uri);
+    request.post({ url: uri, timeout: 3000 }, function (err, response, body) {
+        if (err || response.statusCode !== 200)
+            console.log("ERROR: " + err);
+        else if (response.statusCode !== 200)
+            console.log("FAILED: response code: " + response.statusCode);
+        else {
+            console.log("SUCESS: response code: " + response.statusCode);
+        }
+    })
+}, 5000)
 
-packagePath = path.resolve(".", "node_modules");
-console.log('packagePath: ' + packagePath);
-
-require('app-module-path').addPath(packagePath);
-require('module').Module.globalPaths.push(packagePath);
-console.log();
-console.log('****************************');
-
-console.log('After');
-for (var i = 0; i < require.main.paths.length; i++) {
-    console.log(require.main.paths[i]);
-}
-console.log('****************************');
-console.log();
-
-require('colors');
-
-console.log("start".bgYellow.black);
-var util = require('./lib/Util.js');
-
-// util.addNpmPackage("wmmihaa002@latest", function (err) {
-//     console.log("Package installed");
-
-//     var w2 = require("wmmihaa002");
-//     w2.printTime();
-
-// });
-
-util.addNpmPackage("microservicebus.core@beta", function (err) {
-    if (err) {
-        console.log("Unable to install core update".bgRed.white);
-        console.log("Error: " + err);
-    }
-    else {
-        console.log("Core installed successfully".bgRed.white);
-
-        var zzz = require("microservicebus.core");
-        console.log("isnull: " + zzz == null);
-    }
-});
