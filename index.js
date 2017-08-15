@@ -1,6 +1,4 @@
-
-
-
+#!/usr/bin/env node
 
 var url = require('url');
 var request = require("request");
